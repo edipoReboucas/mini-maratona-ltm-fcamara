@@ -11,7 +11,12 @@ planilhaDados.dadosPlan(async function(csvProductArray){
   let data = [];
 
   const newCsvProductPromiseArray = csvProductArray.map(async csvProduct => {
-    let responseProductMult = await Multiplus.getPrice(csvProduct);
+    let responseProductMult = null;
+  
+    try {
+      responseProductMult = await Multiplus.getPrice(csvProduct);
+    } catch(e) {    
+    }
 
     console.log('Multiplos Response', { responseProductMult });
   
