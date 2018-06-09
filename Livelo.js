@@ -1,8 +1,8 @@
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
-const getPrice = ({ nome }) => {
-    return fetch(`http://www.pontoslivelo.com.br/browse?Ntt=${nome}`)
+const getPrice = (csvProduct) => {
+    return fetch(`http://www.pontoslivelo.com.br/browse?Ntt=${csvProduct['DESCRIÇÃO']}`)
     .then(response => response.text())
     .then(body => {
         let $    = cheerio.load(body)
@@ -22,10 +22,7 @@ const getPrice = ({ nome }) => {
     });
 }
 
-const resposta = getPrice({ nome: 'VINHO TINTO SAN MARZANO IL PUMO NEGROAMARO SALENTO 2016'});
-
-resposta.then( x => {
-    console.log(x);
-});
-
+module.exports = {
+    getPrice,
+};
 

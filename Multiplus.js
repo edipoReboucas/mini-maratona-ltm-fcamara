@@ -1,8 +1,8 @@
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
-const getPrice = ({ nome }) =>
-  fetch(`https://www.pontosmultiplus.com.br/troque/busca?Ntt=${nome}`)
+const getPrice = (csvProduct) =>
+  fetch(`https://www.pontosmultiplus.com.br/troque/busca?Ntt=${csvProduct['DESCRIÇÃO']}`)
   .then(toText)
   .then(tojQuery)
   .then(findProducts)
