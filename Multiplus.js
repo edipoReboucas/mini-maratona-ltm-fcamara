@@ -2,7 +2,9 @@ const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
 const getPrice = (csvProduct) =>
-  fetch(`https://www.pontosmultiplus.com.br/troque/busca?Ntt=${csvProduct['DESCRIÇÃO']}`)
+  fetch(`https://www.pontosmultiplus.com.br/troque/busca?Ntt=${csvProduct['DESCRIÇÃO']}`, {
+    timeout: 3000
+  })
   .then(toText)
   .then(tojQuery)
   .then(findProducts)

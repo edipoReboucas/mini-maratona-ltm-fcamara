@@ -2,7 +2,9 @@ const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
 const getPrice = (csvProduct) => {
-    return fetch(`https://www.shoppingsmiles.com.br/smiles/super_busca.jsf?b=${csvProduct['DESCRIÇÃO']}&a=false`)
+    return fetch(`https://www.shoppingsmiles.com.br/smiles/super_busca.jsf?b=${csvProduct['DESCRIÇÃO']}&a=false`, {
+        timeout: 3000
+    })
         .then(responde => responde.text())
             .then(body => {
                 let $    = cheerio.load(body)
