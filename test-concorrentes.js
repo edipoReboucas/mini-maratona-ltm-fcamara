@@ -2,13 +2,15 @@ const Multiplus = require('./Multiplus');
 const Livelo = require('./Livelo');
 const Smiles = require('./Smiles');
 
-const csvProduct = { ['DESCRIÇÃO']: 'Bicicleta Aro 26 Caloi Andes 21 Marchas Suspensão Dianteira', ['BANDEIRA']: 'extra'  };
+const csvProduct = {
+  ['DESCRIÇÃO']: 'iphone 8',
+  ['BANDEIRA']: 'Extra'
+};
 
 let responseProduct = Multiplus.getPrice(csvProduct);
 responseProduct.then(product => {
-  console.log('Multiplos Response', { product });
+  console.log('Multiplus Response', { product });
 });
-
 
 responseProduct = Livelo.getPrice(csvProduct);
 responseProduct.then(product => {
