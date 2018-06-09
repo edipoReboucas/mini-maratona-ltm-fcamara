@@ -14,12 +14,12 @@ const getPrice = (csvProduct) => {
                         let parceiro = $(element).find('.fornecedor-item-box img').attr('src');
                         parceiro = parceiro.substring(parceiro.indexOf('0') + 1, parceiro.indexOf('.g'));
                         data.push({
-                            nome, 
+                            nome,
                             pontos,
                             parceiro
                         });
                     });
-                return data.length === 0 ? null : data[0];    
+                return data.length === 0 ? null : data[0];
             });
 }
 

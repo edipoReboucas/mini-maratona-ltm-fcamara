@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
 const getPrice = (csvProduct) =>
-  fetch(getPriceUrl(csvProduct), { timeout: 300 })
+  fetch(getPriceUrl(csvProduct), { timeout: 3000 })
   .then(acceptOnly200)
   .then(toText)
   .then(tojQuery)
