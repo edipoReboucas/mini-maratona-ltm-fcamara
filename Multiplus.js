@@ -41,7 +41,8 @@ const getFirst = $elements => $elements.first();
 
 const toProduct = $productElement => ({
   nome: $productElement.find('.descricao').text(),
-  pontos: $productElement.find('.price-desktop .product-price strong').text()
+  pontos: $productElement.find('.price-desktop .product-price strong').text(),
+  parceiro: $productElement.find('.logo-parceiro').attr('alt')
 });
 
 module.exports = {
