@@ -6,9 +6,9 @@ const getPrice = (csvProduct) =>
   .then(toText)
   .then(tojQuery)
   .then(findProducts)
-  .then(whenNotEmpty(getFirst))
-  .then(getFirst)
-  .then(toProduct);
+  .then(whenNotEmpty(
+    $products => toProduct(getFirst($products))
+  ));
 
 const toText = response => response.text();
 
