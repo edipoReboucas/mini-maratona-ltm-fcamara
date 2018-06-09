@@ -15,15 +15,12 @@
     "express-hbs": "^1.0.4",
     "express-session": "^1.15.5",
     "morgan": "^1.8.2",
-<<<<<<< HEAD
     "node-excel-to-json": "0.0.3",
     "node-fetch": "^2.1.2",
     "request": "^2.81.0",
-    "xls-to-json": "^0.5.0"
-=======
+    "xls-to-json": "^0.5.0",
     "node-fetch": "^2.1.2",
     "request": "^2.81.0"
->>>>>>> 3656d975be6fb950c4fe25284b226402b44746ab
   },
   "repository": {
     "type": "git",
