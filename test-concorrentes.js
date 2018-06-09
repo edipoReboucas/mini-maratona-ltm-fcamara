@@ -2,7 +2,7 @@ const Multiplus = require('./Multiplus');
 const Livelo = require('./Livelo');
 const Smiles = require('./Smiles');
 
-const csvProduct = { ['DESCRIÇÃO']: 'iphone 8' };
+const csvProduct = { ['DESCRIÇÃO']: 'Bicicleta Aro 26 Caloi Andes 21 Marchas Suspensão Dianteira', ['BANDEIRA']: 'extra'  };
 
 let responseProduct = Multiplus.getPrice(csvProduct);
 responseProduct.then(product => {

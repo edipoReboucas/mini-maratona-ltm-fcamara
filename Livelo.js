@@ -11,10 +11,12 @@ const getPrice = (csvProduct) => {
             .each((key, element) => {
                 let pontos = $(element).find('.prodprice').text()
                 let nome = $(element).find('.proddesc').text()
-                
+                let parceiro = $(element).find('.partner-name').text();
+
                 data.push({
                     nome,
                     pontos,
+                    parceiro
                 })
             });
 
