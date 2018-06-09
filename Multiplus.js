@@ -1,14 +1,33 @@
-const fetch = require('node-fetch')
-const cheerio = require('cheerio')
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
 
 const getPrice = (csvProduct) =>
-  fetch(`https://www.pontosmultiplus.com.br/troque/busca?Ntt=${csvProduct['DESCRIÇÃO']}`)
+  fetch(getPriceUrl(csvProduct))
+  .then(acceptOnly200)
   .then(toText)
   .then(tojQuery)
   .then(findProducts)
   .then(whenNotEmpty(
     $products => toProduct(getFirst($products))
   ));
+
+const getPriceUrl = csvProduct =>
+  'https://www.pontosmultiplus.com.br/troque/'
+  + createPartnerSlug(csvProduct)
+  + '/busca'
+  + encodeURIComponent(`?Ntt=${csvProduct['DESCRIÇÃO']}`);
+
+const createPartnerSlug = csvProduct => csvProduct['BANDEIRA']
+  .trim()
+  .toLowerCase()
+  .replace(/\s+/, '');
+
+const acceptOnly200 = response => {
+  if (response.status === 200) {
+    return response;
+  }
+  throw new Error('Response is not 200');
+}
 
 const toText = response => response.text();
 
