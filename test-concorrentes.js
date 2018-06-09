@@ -4,7 +4,7 @@ const Smiles = require('./Smiles');
 
 const csvProduct = {
   ['DESCRIÇÃO']: 'iphone 8',
-  ['BANDEIRA']: 'Extra'
+  ['BANDEIRA']: 'Ponto Frio'
 };
 
 let responseProduct = Multiplus.getPrice(csvProduct);

@@ -2,7 +2,16 @@ const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 
 const getPrice = (csvProduct) => {
-    return fetch(`http://www.pontoslivelo.com.br/browse?Ntt=${csvProduct['DESCRIÇÃO']}`)
+    let listParceiros = {
+        CasasBahia: "2042780991",
+        FastShop: "2772514182",
+        Extra: "363586019",
+        PontoFrio: "3958921117"
+    }
+
+    let parceiroFilter = csvProduct['BANDEIRA'].trim();
+    
+    return fetch(`http://www.pontoslivelo.com.br/browse?N=${listParceiros[parceiroFilter]}&Ntt=${csvProduct['DESCRIÇÃO']}`)
     .then(response => response.text())
     .then(body => {
         let $    = cheerio.load(body)
