@@ -8,10 +8,18 @@ const getPrice = (csvProduct) => {
         Extra: "363586019",
         PontoFrio: "3958921117"
     }
-
-    let parceiroFilter = csvProduct['BANDEIRA'].trim();
     
-    return fetch(`http://www.pontoslivelo.com.br/browse?N=${listParceiros[parceiroFilter]}&Ntt=${csvProduct['DESCRIÇÃO']}`)
+    let url;
+    let parceiroFilter = csvProduct['BANDEIRA'].replace(" ", "");
+    if(listParceiros[parceiroFilter] === undefined) {
+        url = encodeURI(`http://www.pontoslivelo.com.br/browse?Ntt=${csvProduct['DESCRIÇÃO']}`);
+    } else {
+        url = encodeURI(`http://www.pontoslivelo.com.br/browse?N=${listParceiros[parceiroFilter]}&Ntt=${csvProduct['DESCRIÇÃO']}`);
+    }
+
+    //console.log(url);
+
+    return fetch(url)
     .then(response => response.text())
     .then(body => {
         let $    = cheerio.load(body)
