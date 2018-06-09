@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Comparador de Preços: Smiles, Livelo e Multiplus</title>
+    <style>
+      body{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      html, body {
+          height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="width: 400px" style="flexbox: box">
+      <form class="form-signin" action="/" method="POST">
+        <h2 class="form-signin-heading" style="margin-bottom: 20px">Comparador de Preços: Smiles, Livelo e Multiplus</h2>
+        <div class="form-group" style="margin-bottom: 20px">
+          <label for="xlsx" class="sr-only">Planilha do Parceiro</label>
+          <input type="file" id="xlsx" name="xlsx" class="form-control-file" required>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Comparar</button>
+      </form>
+    </div>
+  </body>
+</html>
